@@ -1,5 +1,5 @@
 from random import choice as random_choice
-from words_5 import popular_words_5, all_words_5
+from words_5 import popular_words_5, other_words_5
 
 
 def color_print(test_word, computer_word):
@@ -35,7 +35,7 @@ print(f'Я загадал слово их {len(word)} букв...\n')
 while True:
     attempt += 1
     test = input(f'Попытка № {attempt} Введите слово: ').lower()
-    while test not in all_words_5:
+    while test not in popular_words_5 and test not in other_words_5:
         test = input('Нет такого слова. Введите слово: ').lower()
     color_print(test, word)
     if test == word:
