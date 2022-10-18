@@ -1,5 +1,5 @@
-from random import choice as random_choice
-from words_5 import popular_words_5, other_words_5
+from random import choice as choice
+from dictionaries import popular_words_5, other_words_5
 
 
 def color_print(test_word, computer_word):
@@ -28,16 +28,23 @@ def color_print(test_word, computer_word):
     print('\033[0m', sep='', end='\n')
 
 
-word = random_choice(popular_words_5)
+word = choice(popular_words_5)
 attempt = 0
 print(f'Я загадал слово их {len(word)} букв...\n')
 
 while True:
     attempt += 1
     test = input(f'Попытка № {attempt} Введите слово: ').lower()
-    while test not in popular_words_5 and test not in other_words_5:
-        test = input('Нет такого слова. Введите слово: ').lower()
+
+    while len(test) != len(word) or (test not in popular_words_5 and test not in other_words_5):
+        if len(test) != len(word):
+            test = input(f'Длина слова не равна {len(word)}! Введите слово: ').lower()
+            continue
+        if test not in popular_words_5 and test not in other_words_5:
+            test = input(f'Нет такого слова! Введите слово: ').lower()
+
     color_print(test, word)
+
     if test == word:
         print('ПОБЕДА!!!')
         input('Для выхода нажмите ENTER...')
