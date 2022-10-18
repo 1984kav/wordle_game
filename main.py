@@ -39,6 +39,6 @@ while True:
         test = input('Нет такого слова. Введите слово: ').lower()
     color_print(test, word)
     if test == word:
-        print('VICTORY')
-        input()
+        print('ПОБЕДА!!!')
+        input('Для выхода нажмите ENTER...')
         break
