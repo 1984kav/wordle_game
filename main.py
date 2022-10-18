@@ -30,7 +30,7 @@ def color_print(test_word, computer_word):
 
 word = choice(popular_words_5)
 attempt = 0
-print(f'Я загадал слово их {len(word)} букв...\n')
+print(f'Я загадал слово из {len(word)} букв...\n')
 
 while True:
     attempt += 1
