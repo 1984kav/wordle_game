@@ -42,15 +42,14 @@ def color_print(test_word, computer_word):
     print('\033[0m', sep='', end='\n')
 
 
-color_print('abbab', 'bbbab')
-
 word = choice(popular_words_5)
+test_words = []
 attempt = 0
-print(f'Я загадал слово из {len(word)} букв...\n')
+print(f'Я загадал слово из {len(word)} букв...')
 
 while True:
     attempt += 1
-    test = input(f'Попытка № {attempt} Введите слово: ').lower()
+    test = input(f'\nПопытка № {attempt} Введите слово: ').lower()
 
     while len(test) != len(word) or (test not in popular_words_5 and test not in other_words_5):
         if len(test) != len(word):
@@ -59,7 +58,10 @@ while True:
         if test not in popular_words_5 and test not in other_words_5:
             test_word = input(f'Нет такого слова! Введите слово: ').lower()
 
-    color_print(test, word)
+    test_words.append(test)
+    print('\n' * 100)
+    for test in test_words:
+        color_print(test, word)
 
     if test == word:
         print('ПОБЕДА!!!')
